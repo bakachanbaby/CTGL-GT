@@ -1,26 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-ll t, n, k, a[10000005];
-void nhap(){
-    cin>>n>>k;
-    for(int i = 0; i < n; i++)
-        cin>>a[i];
-}
-void in(){
-    ll *p = lower_bound(a, a+n, k);
-    if(p != a+n)
-    {
-        cout<<p-a<<endl;
-    }
-    else 
+
+void in(ll a[], ll n, ll k){
+    ll *p = upper_bound(a, a+n, k);
+    if(p-a == 0)
     cout<<-1<<endl;
+    else 
+    cout<<p-a<<endl;
 }
 int main(){
+    ll t;
     cin>>t;
     while(t--)
     {
-        nhap();
-        in();
+        ll n, k;
+        cin>>n>>k;
+        ll a[n+5];
+        for(ll i = 0; i < n; i++)
+            cin>>a[i];
+        in(a, n, k);
     }
 }
